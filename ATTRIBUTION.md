@@ -13,8 +13,8 @@ Ce document doit être obligatoirement complété, signé numériquement par cha
 * **Dépôt :** https://github.com/brahim403/secure-information-hiding
 
 ### Membres de l'équipe :
-1. **BOUJDARIA Mohamed Fourat** - Email : `À_COMPLÉTER` - Rôle principal : Lead Dev Backend (API Jakarta EE 11, persistance, identité et contrôle d'accès, paiement, anti-rejeu) / Expert SRE
-2. **CHEIKH Brahim** - Email : `À_COMPLÉTER` - Rôle principal : Moteur de dissimulation (filigrane, empreinte, sceau LSB), services de preuve (signature, chiffrement), PWA et application de scan
+1. **BOUJDARIA Mohamed Fourat** - Email : `mohamedfourat.boujdaria@supcom.tn` - Rôle principal : Lead Dev Backend (API Jakarta EE 11, persistance, identité et contrôle d'accès, paiement, anti-rejeu) / Expert SRE
+2. **CHEIKH Brahim** - Email : `brahim.cheikh@supcom.tn` - Rôle principal : Moteur de dissimulation (filigrane, empreinte, sceau LSB), services de preuve (signature, chiffrement), PWA et application de scan
 
 *(Répartition conforme au §3.3 du cahier des charges ; exigences de sécurité, tests et déploiement partagés, chaque pull request relue par l'autre membre.)*
 
@@ -35,18 +35,18 @@ Conformément aux directives de l'atelier, l'usage de l'IA est autorisé exclusi
 
 ### 📊 Tableau de transparence IA
 
-> Les pourcentages sont des estimations à **ajuster par l'équipe** avant signature, selon l'usage réel.
+> Pourcentages estimés par l'équipe. Les documents de phase 1 ont été produits avec une forte assistance de l'IA ; l'équipe en a défini le sujet, le périmètre et les choix, puis les a relus et validés. Aucun code n'a encore été produit.
 
 | Composant / Phase | IA utilisée (Nom/Version) | Pourcentage estimé de contenu généré | Rôle précis de l'IA & Prompts clés utilisés |
 | :--- | :--- | :--- | :--- |
-| **Phase 1 : Cahier des charges** | Claude (Anthropic), Claude Sonnet 5.5 | 40 % | Aide à la structuration et à la rédaction à partir de nos choix métier (Tessera, périmètre, répartition) et du mail de l'enseignant. Relecture et décisions par l'équipe. |
-| **Phase 1 : Exigences (SRE)** | Claude (Anthropic), Claude Sonnet 5.5 | 50 % | Structuration du recueil (approche unique par cas d'abus, six types d'exigences, matrices de traçabilité), mise en forme LaTeX. Prompt : « regénère le recueil de manière convenable à ce qui est demandé : une seule approche, justifiée, adaptée au cahier des charges ». Contenu validé et corrigé par l'équipe. |
+| **Phase 1 : Cahier des charges** | Claude (Anthropic), Claude Sonnet 5.5 | Plus de 60 % (≈ 65 %) | Aide à la structuration et à la rédaction à partir de nos choix métier (Tessera, périmètre, répartition des rôles) et du mail de l'enseignant ; mise en forme du document. Relecture, corrections et décisions par l'équipe. |
+| **Phase 1 : Exigences (SRE)** | Claude (Anthropic), Claude Sonnet 5.5 | Plus de 60 % (≈ 65 %) | Structuration du recueil (approche unique par cas d'abus, six types d'exigences, matrices de traçabilité), mise en forme LaTeX. Prompt : « regénère le recueil de manière convenable à ce qui est demandé : une seule approche, justifiée, adaptée au cahier des charges ». Contenu validé et corrigé par l'équipe. |
 | **Phase 2 : Threat Modelling** | À compléter | À compléter | À compléter lors du jalon. |
 | **Développement Backend** | À compléter | À compléter | Aucun code livré à ce jour (S0 : documentation). |
 | **Moteur de Dissimulation** | À compléter | À compléter | Aucun code livré à ce jour. |
 
 ### 🛠️ Exemple de Prompt Clé (Le plus significatif utilisé par l'équipe) :
-> *« Regénère le recueil des besoins pour qu'il corresponde à ce qui est demandé : une seule approche SRE justifiée, des exigences précises adaptées à Jakarta EE 11 / WildFly 42 / Java 25 et au métier, en évitant les erreurs de l'ancien document. Donne le code LaTeX pour qu'il corresponde au cahier des charges. »*
+> *« Voici le mail de l'enseignant et notre cahier des charges Tessera. Aide-nous à structurer le recueil des besoins avec une seule approche SRE justifiée (cas d'abus), des exigences de sécurité précises adaptées à Jakarta EE 11 / WildFly 42 / Java 25 et au métier de la billetterie, classées selon les six types du cours, avec traçabilité vers les tests. Évite les listes génériques et les erreurs de l'ancien document. »*
 
 ---
 
