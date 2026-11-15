@@ -99,6 +99,45 @@ Toute transition est contrôlée par le domaine métier côté serveur et journa
 
 ## Architecture et pile technique
 
+```mermaid
+flowchart TB
+    subgraph C["Zone Z1 : clients"]
+        PWA["PWA / SPA acheteur<br/>service worker limité au shell"]
+        SCAN["Application de scan<br/>agent affecté"]
+        BO["Console organisateur,<br/>auditeur, administrateur"]
+    end
+    PSP["Prestataire de paiement<br/>simulé"]
+    subgraph W["Zone Z2 : WildFly 42 / Java 25 (Jakarta EE 11)"]
+        UT["Undertow<br/>TLS 1.3 · plafonds · CSP"]
+        SEC["Jakarta Security 4.0<br/>authentification, RBAC et ABAC"]
+        REST["Jakarta REST 4.0<br/>DTO validés (Validation 3.1)"]
+        DOM["Services métier CDI<br/>réservation · émission · transfert · scan"]
+        EXE["Jakarta Concurrency 3.1<br/>file bornée, threads virtuels, sémaphore"]
+        ENG["Moteur de marquage<br/>DCT : filigrane, empreinte<br/>puis sceau LSB (dernier)"]
+        CRY["Services de preuve<br/>Ed25519 · AES-256-GCM · HKDF"]
+        AUD["Audit append-only<br/>chaîne de condensats"]
+        UT --> SEC --> REST --> DOM
+        DOM --> EXE --> ENG
+        DOM --> CRY
+        ENG --> CRY
+        DOM --> AUD
+    end
+    subgraph D["Zone Z4 : données"]
+        PG[("PostgreSQL<br/>billets, réservations, utilisateurs")]
+        AU[("Audit<br/>INSERT et SELECT seulement")]
+        CT[("Table empreinte–affectation<br/>accès restreint, justifié")]
+    end
+    PWA -->|HTTPS| UT
+    SCAN -->|HTTPS| UT
+    BO -->|HTTPS| UT
+    PSP -->|webhook signé| UT
+    DOM --> PG
+    AUD --> AU
+    DOM --> CT
+```
+
+**Ordre de marquage de l'image (obligatoire) :** filigrane et empreinte sont insérés dans le domaine DCT (modulation QIM), puis transformée inverse, et le sceau LSB est inséré **en dernier**. À l'analyse, le sceau est lu avant l'extraction DCT.
+
 | Couche | Technologies |
 |---|---|
 | Client | PWA/SPA (service worker limité au shell statique, aucune donnée de billet en cache) |
