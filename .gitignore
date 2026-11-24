@@ -57,3 +57,6 @@ coverage/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Local study guides — not versioned
+GUIDE_*.md
