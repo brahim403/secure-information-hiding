@@ -1,0 +1,59 @@
+# ---------------------------------------------------------------------------
+# Tessera — .gitignore
+# ---------------------------------------------------------------------------
+
+# Local working material — not versioned
+coure3-4_requirement/
+
+# Local progress notes — not versioned
+RAPPORT_AVANCEMENT.md
+
+# Local WildFly CLI scripts — not versioned
+Cli-scrpits/
+
+# ---- Secrets (defense in depth: keys must live in Elytron credential store) --
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+.env
+.env.*
+*.properties.local
+secrets/
+
+# ---- Java / Maven ----------------------------------------------------------
+target/
+*.class
+*.jar
+*.war
+*.ear
+dependency-reduced-pom.xml
+
+# ---- Node / PWA / SPA ------------------------------------------------------
+node_modules/
+dist/
+build/
+.npm/
+npm-debug.log*
+coverage/
+
+# ---- LaTeX build artifacts (keep only .tex sources + final .pdf) -----------
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+
+# ---- IDE / OS --------------------------------------------------------------
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
