@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  tessera-iam — internal IAM / STS (served as its own
+  WildFly host in later phases, cf. iam-dev.properties).
+  Provides OAuth 2.1 + PKCE, PASETO v4.public, JWK + key
+  rotation, refresh-token rotation, SHA3-224 + Argon2id, and TOTP.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>tn.supcom.tessera</groupId>
+        <artifactId>tessera-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>tessera-iam</artifactId>
+    <packaging>jar</packaging>
+    <name>Tessera :: IAM / STS</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>tn.supcom.tessera</groupId>
+            <artifactId>tessera-proof</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- Argon2id (not in the JDK). -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
