@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  tessera-api — Jakarta REST API, packaged as a WAR for WildFly 42.
+  Includes the ticketing/auth resources and the REST security
+  architecture test that fails the build if any REST method is missing an
+  access-control annotation.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>tn.supcom.tessera</groupId>
+        <artifactId>tessera-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>tessera-api</artifactId>
+    <packaging>war</packaging>
+    <name>Tessera :: API (WAR)</name>
+
+    <dependencies>
+        <!-- Provided by WildFly 42 (Jakarta EE 11 runtime). -->
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>${jakartaee.bom.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>tn.supcom.tessera</groupId>
+            <artifactId>tessera-proof</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tn.supcom.tessera</groupId>
+            <artifactId>tessera-iam</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Test: architecture rules. -->
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>tessera-api</finalName>
+    </build>
+</project>
