@@ -47,17 +47,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  static-analysis:
-    name: SAST (SpotBugs + Find Security Bugs)
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up JDK 25
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '25'
-          cache: maven
-      - name: SpotBugs analysis (report)
-        run: mvn -B -ntp -DskipTests verify com.github.spotbugs:spotbugs-maven-plugin:check
+# NOTE: SAST (SpotBugs + Find Security Bugs) is temporarily disabled — its bundled
+# ASM does not yet read Java 25 bytecode (class file major version 69). It will be
+# re-enabled when SpotBugs ships Java 25 support. In the meantime the REST security
+# architecture test (in the build job) and gitleaks provide security coverage.
